@@ -4,12 +4,12 @@ class NetcleanMonitorPreview < Formula
   version "0.0.1"
 
   on_arm do
-    url "REPLACE_ME_PREVIEW_ARM64_URL"
+    url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.1/monitor-macos-arm64.pkg"
     sha256 "REPLACE_ME_PREVIEW_ARM64_SHA256"
   end
 
   on_intel do
-    url "REPLACE_ME_PREVIEW_X64_URL"
+    url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.1/monitor-macos-x64.pkg"
     sha256 "REPLACE_ME_PREVIEW_X64_SHA256"
   end
 
@@ -19,6 +19,6 @@ class NetcleanMonitorPreview < Formula
   end
 
   test do
-    system "pkgutil", "--pkg-info", "com.netclean.monitor.preview"
+    system "pkgutil", "--pkg-info", "com.netclean.monitor"
   end
 end

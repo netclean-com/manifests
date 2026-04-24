@@ -4,12 +4,12 @@ class NetcleanMonitor < Formula
   version "0.0.1"
 
   on_arm do
-    url "REPLACE_ME_ARM64_URL"
+    url "https://cdn.netclean.cloud/releases/monitor/stable/0.0.1/monitor-macos-arm64.pkg"
     sha256 "REPLACE_ME_ARM64_SHA256"
   end
 
   on_intel do
-    url "REPLACE_ME_X64_URL"
+    url "https://cdn.netclean.cloud/releases/monitor/stable/0.0.1/monitor-macos-x64.pkg"
     sha256 "REPLACE_ME_X64_SHA256"
   end
 
