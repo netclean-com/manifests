@@ -1,4 +1,4 @@
-Manifests
+# Manifests
 
 ## Winget
 
@@ -6,4 +6,4 @@ Read readme in [Winget](./Winget/README.md) for installation instructions and do
 
 ## Homebrew
 
-Read readme in [Formula](./Formula/README.md) for installation instructions and documentation.
+Read readme in [HomebrewFormula](HomebrewFormula/README.md) for installation instructions and documentation.
