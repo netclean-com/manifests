@@ -1,17 +1,24 @@
-# Temp Example
+# netclean-com/manifests
 
 ## How do I install these formulae?
 
-`brew install temp/example/<formula>`
+`brew install netclean-com/manifests/netclean-monitor`
 
-Or `brew tap temp/example` and then `brew install <formula>`.
+Or `brew tap netclean-com/manifests` and then `brew install netclean-monitor`.
 
 Or, in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "temp/example"
-brew "<formula>"
+tap "netclean-com/manifests"
+brew "netclean-monitor"
 ```
+
+### Available formulae
+
+| Formula | Description |
+|---|---|
+| `netclean-monitor` | Stable release |
+| `netclean-monitor-preview` | Preview / pre-release channel |
 
 ## Documentation
 
