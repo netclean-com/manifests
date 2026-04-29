@@ -6,4 +6,4 @@ Read readme in [Winget](./Winget/README.md) for installation instructions and do
 
 ## Homebrew
 
-Read readme in [Casks](Casks/README.md) for installation instructions and documentation.
+Read readme in [Casks](./Casks/README.md) for installation instructions and documentation.

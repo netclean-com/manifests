@@ -18,6 +18,4 @@ cask "netclean-monitor-preview" do
    executable: "/Library/NetClean/Monitor/uninstall.sh",
    sudo:        true
  }
-
-  zap trash: "/Library/Application Support/NetClean/"
 end
