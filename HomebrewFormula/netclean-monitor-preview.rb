@@ -1,16 +1,16 @@
 class NetcleanMonitorPreview < Formula
   desc "NetClean Monitor (Preview)"
   homepage "https://www.netclean.com"
-  version "0.0.1"
+  version "0.0.0"
 
   on_arm do
-    url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.1/monitor-macos-arm64.pkg"
-    sha256 "REPLACE_ME_PREVIEW_ARM64_SHA256"
+    url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.0/netclean-monitor-0.0.0-arm64.pkg"
+    sha256 "6edf932c65d3c7eaa4363421bb6f89b921b765fb4b9fe68f750bf4b5f2ac6b41"
   end
 
   on_intel do
-    url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.1/monitor-macos-x64.pkg"
-    sha256 "REPLACE_ME_PREVIEW_X64_SHA256"
+    url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.0/netclean-monitor-0.0.0-x64.pkg"
+    sha256 "a356c2afeb3578133f612a5a1cbc9ef26b6cf20646981642a4c6730820e8d50e"
   end
 
   def install
