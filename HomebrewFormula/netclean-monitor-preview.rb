@@ -2,6 +2,7 @@ class NetcleanMonitorPreview < Formula
   desc "NetClean Monitor (Preview)"
   homepage "https://www.netclean.com"
   version "0.0.0"
+  license :cannot_represent
 
   on_arm do
     url "https://cdn.netclean.cloud/releases/monitor/preview/0.0.0/netclean-monitor-0.0.0-arm64.pkg"
