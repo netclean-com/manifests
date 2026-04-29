@@ -36,5 +36,5 @@ jobs:
       - run: brew test-bot --only-setup
 
       - run: brew test-bot --only-tap-syntax
-      - run: brew test-bot --only-casks
+      - run: brew audit --cask --tap="$GITHUB_REPOSITORY"
         if: github.event_name == 'pull_request'

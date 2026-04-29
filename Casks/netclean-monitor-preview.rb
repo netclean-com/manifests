@@ -10,7 +10,14 @@ cask "netclean-monitor-preview" do
   desc "Background monitoring daemon by NetClean Technologies AB (preview channel)"
   homepage "https://www.netclean.com"
 
+  livecheck do
+    skip "Version is managed by the automated release pipeline"
+  end
+
   conflicts_with cask: "netclean-monitor"
+
+  depends_on macos: ">= :sequoia"
+  depends_on arch: [:arm64, :intel]
 
   pkg "netclean-monitor-#{version}-#{arch}.pkg"
 
