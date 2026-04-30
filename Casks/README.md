@@ -4,12 +4,12 @@
 
 `brew install --cask netclean-com/manifests/netclean-monitor`
 
-Or `brew tap netclean-com/manifests` and then `brew install --cask netclean-monitor`.
+Or `brew tap netclean-com/manifests https://github.com/netclean-com/manifests` and then `brew install --cask netclean-monitor`.
 
 Or, in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "netclean-com/manifests"
+tap "netclean-com/manifests", "https://github.com/netclean-com/manifests"
 cask "netclean-monitor"
 ```
 
