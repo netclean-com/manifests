@@ -5,7 +5,8 @@ cask "netclean-monitor-preview" do
   sha256 arm:   "6edf932c65d3c7eaa4363421bb6f89b921b765fb4b9fe68f750bf4b5f2ac6b41",
          intel: "a356c2afeb3578133f612a5a1cbc9ef26b6cf20646981642a4c6730820e8d50e"
 
-  url "https://cdn.netclean.cloud/releases/monitor/preview/#{version}/netclean-monitor-#{version}-#{arch}.pkg"
+  url "https://cdn.netclean.cloud/releases/monitor/preview/#{version}/netclean-monitor-#{version}-#{arch}.pkg",
+      verified: "cdn.netclean.cloud/releases/monitor/"
   name "NetClean Monitor (Preview)"
   desc "Background monitoring daemon by NetClean Technologies AB (preview channel)"
   homepage "https://www.netclean.com"
