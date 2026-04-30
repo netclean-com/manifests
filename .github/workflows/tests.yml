@@ -31,19 +31,11 @@ jobs:
           key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ matrix.os }}-rubygems-
 
-      # Rust is required for rubydex, which is a dependency of Homebrew's test-bot. We only need to install it on
-      # Intel macOS, as Apple Silicon macOS comes with Rust pre-installed.
-      - name: Install Rust (Cargo) for rubydex
-        if: matrix.os == 'macos-26-intel'
-        run: |
-          brew update
-          brew install rust
-          cargo --version
-
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup
 
       - run: brew test-bot --only-tap-syntax
+        if: ${{ matrix.os == 'macos-26' }} # Temporary workaround for internal Homebrew bug: https://github.com/homebrew/brew/issues/22098
       - run: brew audit --cask --tap="$GITHUB_REPOSITORY"
         if: github.event_name == 'pull_request'
