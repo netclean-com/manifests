@@ -1,19 +1,35 @@
 # netclean-com/manifests
 
-## How do I install these casks?
+Homebrew casks for [NetClean](https://www.netclean.com) software.
 
-`brew install --cask netclean-com/manifests/netclean-monitor`
+## Requirements
 
-Or `brew tap netclean-com/manifests https://github.com/netclean-com/manifests` and then `brew install --cask netclean-monitor`.
+- macOS Sequoia (15) or later
+- Apple Silicon (arm64) or Intel (x64)
 
-Or, in a `brew bundle` `Brewfile`:
+## Installation
+
+Add the tap and install a cask:
+
+```sh
+brew tap netclean-com/manifests https://github.com/netclean-com/manifests
+brew install --cask netclean-monitor
+```
+
+Or install directly without tapping first:
+
+```sh
+brew install --cask netclean-com/manifests/netclean-monitor
+```
+
+Or via a `Brewfile`:
 
 ```ruby
 tap "netclean-com/manifests", "https://github.com/netclean-com/manifests"
 cask "netclean-monitor"
 ```
 
-### Available casks
+## Available casks
 
 | Cask | Description |
 |---|---|
@@ -21,6 +37,20 @@ cask "netclean-monitor"
 | `netclean-monitor-preview` | Preview / pre-release channel |
 
 > **Note:** `netclean-monitor` and `netclean-monitor-preview` conflict with each other and cannot be installed simultaneously.
+
+## Uninstallation
+
+```sh
+brew uninstall --cask netclean-monitor
+```
+
+## Versioning
+
+Cask versions are managed automatically by the release pipeline. Versions are bumped via pull requests when new installer packages are published to the CDN.
+
+## Issues and support
+
+Please report issues in this repository's [issue tracker](https://github.com/netclean-com/manifests/issues).
 
 ## Documentation
 

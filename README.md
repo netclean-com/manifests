@@ -1,9 +1,17 @@
-# Manifests
+# netclean-com/manifests
 
-## Winget
+A Homebrew tap for [NetClean](https://www.netclean.com) software.
 
-Read readme in [Winget](./Winget/README.md) for installation instructions and documentation.
+## Quick start
 
-## Homebrew
+```sh
+brew install --cask netclean-com/manifests/netclean-monitor
+```
 
-Read readme in [Casks](./Casks/README.md) for installation instructions and documentation.
+## Available casks
+
+See [Casks/README.md](./Casks/README.md) for the full list of available casks, installation instructions, and requirements.
+
+## Issues and support
+
+Please report issues in this repository's [issue tracker](https://github.com/netclean-com/manifests/issues).
