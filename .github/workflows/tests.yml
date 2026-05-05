@@ -1,54 +1,39 @@
-name: brew test-bot
+name: Cask CI
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
+    paths:
+      - 'Casks/**'
 
 jobs:
-  test-bot:
-    strategy:
-      matrix:
-        os: [ macos-26, macos-26-intel ]
-    runs-on: ${{ matrix.os }}
-    permissions:
-      actions: read
-      checks: read
-      contents: read
-      pull-requests: read
+  test-cask:
+    runs-on: macos-26
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Set up Homebrew
-        id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cache Homebrew Bundler RubyGems
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ matrix.os }}-rubygems-
+      - name: Register tap from local checkout
+        run: brew tap netclean-com/manifests "$(pwd)"
 
-      - run: brew test-bot --only-cleanup-before
-
-      - run: brew test-bot --only-setup
-
-      - run: brew test-bot --only-tap-syntax
-        if: ${{ matrix.os == 'macos-26' }} # Temporary workaround for internal Homebrew bug: https://github.com/homebrew/brew/issues/22098
-
-      - run: brew style "$(brew --repository)/Library/Taps/netclean-com/homebrew-manifests/Casks/"
-
-      - run: brew audit --cask --strict --tap="$GITHUB_REPOSITORY"
-        if: github.event_name == 'pull_request'
-
-      - name: Fetch preview cask (verifies CDN URL and SHA256 checksum)
-        if: github.event_name == 'pull_request'
+      - name: Style and audit changed casks
         run: |
-          cask_file="$(brew --repository)/Library/Taps/netclean-com/homebrew-manifests/Casks/netclean-monitor-preview.rb"
-          if grep -q 'version "0.0.0"' "$cask_file"; then
-            echo "Skipping: cask version is placeholder (0.0.0)"
-          else
-            brew fetch --cask netclean-com/manifests/netclean-monitor-preview
-          fi
+          for cask in $(git diff --name-only origin/main | grep 'Casks/.*\.rb'); do
+            cask_name=$(basename "$cask" .rb)
+            brew style "$cask"
+            brew audit --cask --strict --online "netclean-com/manifests/$cask_name"
+          done
+
+      - name: Verify SHA256 of changed casks
+        run: |
+          for cask in $(git diff --name-only origin/main | grep 'Casks/.*\.rb'); do
+            cask_name=$(basename "$cask" .rb)
+            brew fetch --cask "netclean-com/manifests/$cask_name"
+          done
+
