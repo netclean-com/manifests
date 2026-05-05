@@ -38,7 +38,7 @@ jobs:
       - run: brew test-bot --only-tap-syntax
         if: ${{ matrix.os == 'macos-26' }} # Temporary workaround for internal Homebrew bug: https://github.com/homebrew/brew/issues/22098
 
-      - run: brew style "$(brew --repository netclean-com/manifests)/Casks/"
+      - run: brew style "$(brew --repository)/Library/Taps/netclean-com/homebrew-manifests/Casks/"
 
       - run: brew audit --cask --strict --tap="$GITHUB_REPOSITORY"
         if: github.event_name == 'pull_request'
@@ -46,7 +46,7 @@ jobs:
       - name: Fetch preview cask (verifies CDN URL and SHA256 checksum)
         if: github.event_name == 'pull_request'
         run: |
-          cask_file="$(brew --repository netclean-com/manifests)/Casks/netclean-monitor-preview.rb"
+          cask_file="$(brew --repository)/Library/Taps/netclean-com/homebrew-manifests/Casks/netclean-monitor-preview.rb"
           if grep -q 'version "0.0.0"' "$cask_file"; then
             echo "Skipping: cask version is placeholder (0.0.0)"
           else
