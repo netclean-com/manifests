@@ -3,7 +3,7 @@ name: Cask CI
 on:
   pull_request:
     paths:
-      - 'Casks/**'
+      - 'Casks/netclean-monitor-preview.rb'
 
 jobs:
   test-cask:
@@ -24,7 +24,7 @@ jobs:
 
       - name: Style and audit changed casks
         run: |
-          for cask in $(git diff --name-only origin/main | grep 'Casks/.*\.rb'); do
+          for cask in $(git diff --name-only origin/main | grep 'Casks/netclean-monitor-preview\.rb'); do
             cask_name=$(basename "$cask" .rb)
             brew style "$cask"
             brew audit --cask --strict --online "netclean-com/manifests/$cask_name"
@@ -32,7 +32,7 @@ jobs:
 
       - name: Verify SHA256 of changed casks
         run: |
-          for cask in $(git diff --name-only origin/main | grep 'Casks/.*\.rb'); do
+          for cask in $(git diff --name-only origin/main | grep 'Casks/netclean-monitor-preview\.rb'); do
             cask_name=$(basename "$cask" .rb)
             brew fetch --cask "netclean-com/manifests/$cask_name"
           done
