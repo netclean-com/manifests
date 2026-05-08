@@ -22,7 +22,8 @@ cask "netclean-monitor" do
   pkg "netclean-monitor-#{version}-#{arch}.pkg"
 
   uninstall script: {
-    executable: "/Library/NetClean/Monitor/uninstall.sh",
+    executable: "/bin/sh",
+    args:       ["/Library/NetClean/Monitor/uninstall.sh"],
     sudo:       true,
   }
 end
