@@ -16,7 +16,7 @@ cask "netclean-monitor-preview" do
   end
 
   conflicts_with cask: "netclean-monitor"
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
   depends_on arch: [:arm64, :intel]
 
   pkg "netclean-monitor-#{version}-#{arch}.pkg"
