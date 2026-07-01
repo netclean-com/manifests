@@ -1,9 +1,9 @@
 cask "netclean-monitor-preview" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.0.364"
-  sha256 arm:   "e150fd9b2ac5fa8e0b1e46c2214afafa626e20473473fced1a90eba57591c65d",
-         intel: "9ead0417a7926414fa46f488311b75f6dc2c0ed57f2aadafc1f10450a817bf45"
+  version "0.0.365"
+  sha256 arm:   "0581447f70983cbde0bf147f2422a0729f2dbe17bd082dbd645d566aba298ce9",
+         intel: "82f847cc5efb7469b150e49690d53b8f999589fba437f33a3d614c180f59d7c7"
 
   url "https://cdn.netclean.cloud/releases/monitor/preview/#{version}/netclean-monitor-#{version}-#{arch}.pkg",
       verified: "cdn.netclean.cloud/releases/monitor/"
